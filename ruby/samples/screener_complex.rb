@@ -1,5 +1,3 @@
-# First, follow the installation instructions at https://github.com/intrinio/ruby-sdk
-
 # Load the gem
 require 'intrinio-sdk'
 

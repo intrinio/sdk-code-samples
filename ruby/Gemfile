@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
 ruby "2.3.1"
 
-gem 'intrinio-sdk'
+gem 'intrinio-sdk', git: 'https://github.com/intrinio/ruby-sdk.git', branch: 'master'
 gem 'pp'
