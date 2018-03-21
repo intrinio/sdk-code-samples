@@ -1,3 +1,5 @@
 .DS_Store
 node_modules
 javascript-web/bundle.js
+.idea
+java/target
