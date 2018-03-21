@@ -3,3 +3,6 @@ node_modules
 javascript-web/bundle.js
 .idea
 java/target
+csharp/.vs
+csharp/bin
+csharp/obj
