@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/intrinio/ruby-sdk.git
-  revision: fdc21403fa584d4563c5bad099b5b0e063801c34
+  revision: ca249d7f46b6765ce164487f8c85f229693e471b
   branch: master
   specs:
     intrinio-sdk (0.0.1)
@@ -10,11 +10,11 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    awesome_print (1.8.0)
     ethon (0.11.0)
       ffi (>= 1.3.0)
-    ffi (1.9.23)
+    ffi (1.9.25)
     json (2.1.0)
-    pp (0.1.1)
     typhoeus (1.3.0)
       ethon (>= 0.9.0)
 
@@ -22,8 +22,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   intrinio-sdk!
-  pp
 
 RUBY VERSION
    ruby 2.3.1p112
