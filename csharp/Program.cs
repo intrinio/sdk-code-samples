@@ -1,33 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
 using System.Diagnostics;
 using Intrinio.Api;
 using Intrinio.Client;
 using Intrinio.Model;
 
-namespace IntrinioSample
+namespace Example
 {
-    class Program
+    public class GetSecurityHistoricalDataExample
     {
-        static void Main(string[] args)
+        public static void Main()
         {
-            Configuration.Default.ApiKey.Add("api-key", "YOUR_API_KEY");
+            Configuration.Default.AddApiKey("api_key", "YOUR_API_KEY");
 
-            var companyApi = new CompanyApi();
+            var securityApi = new SecurityApi();
+            var identifier = "AAPL"; // string | A Security identifier (Ticker, FIGI, ISIN, CUSIP, Intrinio ID)
+            var tag = "adj_close_price";  // string | An Intrinio data tag ID or code-name
+            var startDate = DateTime.Now.AddDays(-90);  // DateTime? | Get historical data on or after this date (optional) 
+            var endDate = DateTime.Now;  //DateTime? |Get historical date on or before this date (optional) 
+            var type = ""; // string | Filter by type, when applicable (optional)
+            var sortOrder = ""; // string | Sort by date `asc` or `desc` (optional)  (default to desc)
+            var nextPage = ""; // string | Gets the next page of data from a previous API call (optional) 
 
             try
             {
-                List<CompanySummary> result = companyApi.GetAllCompanies(null);
-                foreach (CompanySummary company in result)
+                ApiResponseSecurityHistoricalData result = securityApi.GetSecurityHistoricalData(identifier, tag, type, startDate, endDate, sortOrder, nextPage);
+
+                foreach(HistoricalData data in result.HistoricalData) 
                 {
-                    Console.WriteLine(company.Name);
+                    Console.WriteLine(data.ToString());
                 }
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling CompanyApi.FilterCompanies: " + e.Message);
+                Debug.Print("Exception when calling SecurityApi.GetSecurityHistoricalData: " + e.Message );
             }
-            Console.ReadLine();
         }
     }
 }
