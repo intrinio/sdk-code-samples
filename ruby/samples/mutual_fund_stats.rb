@@ -1,10 +1,11 @@
 # Load the gem
+require 'bundler/setup'
 require 'intrinio-sdk'
 require 'awesome_print'
 
 # Setup authorization
 Intrinio.configure do |config|
-  config.api_key['api-key'] = 'YOUR API KEY'
+  config.api_key['api_key'] = 'YOUR_API_KEY'
 end
 
 mutual_fund_api = Intrinio::MutualFundApi.new
