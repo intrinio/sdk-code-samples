@@ -1,7 +1,7 @@
 var intrinio = require('intrinio');
 const util = require('util')
 
-intrinio.ApiClient.instance.authentications['ApiKeyAuth'].apiKey = "OjA0N2ZmZGFkZGE0MDk5ZjI0YzZmYjM2NzI3OTgzN2I1";
+intrinio.ApiClient.instance.authentications['ApiKeyAuth'].apiKey = "YOUR_API_KEY";
 
 var security_api = new intrinio.SecurityApi();
 
