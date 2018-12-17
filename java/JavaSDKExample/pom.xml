@@ -4,17 +4,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>intrinio-samples</groupId>
-    <artifactId>code-samples</artifactId>
+    <groupId>com.intrinio</groupId>
+    <artifactId>JavaSDKExample</artifactId>
     <version>1.0-SNAPSHOT</version>
-
     <dependencies>
         <dependency>
             <groupId>com.intrinio</groupId>
             <artifactId>sdk</artifactId>
-            <version>0.0.1</version>
+            <version>1.0.0</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
-    
+
 </project>

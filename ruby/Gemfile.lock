@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/intrinio/ruby-sdk.git
-  revision: ca249d7f46b6765ce164487f8c85f229693e471b
+  revision: 65f1ca1f85fc757c94dab8a2d242c07df20a2ad0
   branch: master
   specs:
-    intrinio-sdk (0.0.1)
+    intrinio-sdk (0.9.1)
       json (~> 2.1, >= 2.1.0)
       typhoeus (~> 1.0, >= 1.0.1)
 
@@ -15,7 +15,7 @@ GEM
       ffi (>= 1.3.0)
     ffi (1.9.25)
     json (2.1.0)
-    typhoeus (1.3.0)
+    typhoeus (1.3.1)
       ethon (>= 0.9.0)
 
 PLATFORMS

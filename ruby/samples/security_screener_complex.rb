@@ -1,17 +1,19 @@
 # Load the gem
+require 'bundler/setup'
 require 'intrinio-sdk'
+require 'awesome_print'
 
 # Setup authorization
 Intrinio.configure do |config|
-  config.api_key['api-key'] = 'YOUR API KEY'
+  config.api_key['api_key'] = 'YOUR_API_KEY'
 end
 
 security_api = Intrinio::SecurityApi.new
 
 sectors = [
-  'Healthcare',
-  'Services',
-  'Financial',
+  'Healthcare', 
+  'Services', 
+  'Financial' 
 ]
 
 opts = { 
@@ -58,9 +60,7 @@ opts = {
 begin
   results = security_api.screen_securities(opts)
   results.each do |result|
-    sector = result.data.find{|x| x.tag == "sector"}.text_value
-    employees = result.data.find{|x| x.tag == "employees"}.number_value
-    puts "#{result.security.name} | Sector: #{sector} | Employees: #{employees}"
+    ap result
   end
 rescue Intrinio::ApiError => e
   puts "Exception when calling SecurityApi->screen_securities: #{e}"

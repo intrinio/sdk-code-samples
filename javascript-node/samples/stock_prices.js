@@ -1,4 +1,5 @@
 var intrinio = require('intrinio');
+const util = require('util')
 
 intrinio.ApiClient.instance.authentications['ApiKeyAuth'].apiKey = "YOUR_API_KEY";
 
@@ -14,7 +15,7 @@ var opts = {
 };
 
 security_api.getSecurityStockPrices(identifier, opts).then(function(data) {
-  $('#apiResult').html(JSON.stringify(data, undefined, 2));
+  console.log(util.inspect(data, false, null, true));
 }, function(error) {
-  $('#apiResult').html(error);
+  console.error(error);
 });

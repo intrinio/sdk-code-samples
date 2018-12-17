@@ -1,9 +1,11 @@
 # Load the gem
+require 'bundler/setup'
 require 'intrinio-sdk'
+require 'awesome_print'
 
 # Setup authorization
 Intrinio.configure do |config|
-  config.api_key['api-key'] = 'YOUR API KEY'
+  config.api_key['api_key'] = 'YOUR_API_KEY'
 end
 
 security_api = Intrinio::SecurityApi.new
@@ -34,9 +36,7 @@ opts = {
 begin
   results = security_api.screen_securities(opts)
   results.each do |result|
-    marketcap = result.data.find{|x| x.tag == "marketcap"}.number_value
-    pe = result.data.find{|x| x.tag == "pricetoearnings"}.number_value
-    puts "#{result.security.name} | Marketcap: #{marketcap} | P/E: #{pe}"
+    ap result
   end
 rescue Intrinio::ApiError => e
   puts "Exception when calling SecurityApi->screen_securities: #{e}"
