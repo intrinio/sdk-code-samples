@@ -10,7 +10,7 @@
     <dependencies>
         <dependency>
             <groupId>com.intrinio</groupId>
-            <artifactId>sdk</artifactId>
+            <artifactId>intrinio-sdk</artifactId>
             <version>1.0.0</version>
             <scope>compile</scope>
         </dependency>
