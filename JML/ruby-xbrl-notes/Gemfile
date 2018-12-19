@@ -1,0 +1,13 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+
+gem 'rake'
+gem 'pry'
+
+#gem 'intrinio-sdk', :git => 'https://github.com/intrinio/ruby-sdk.git'
+gem 'intrinio-sdk', :path => '/Users/jasonlandry/intrinio/intrinio-sdks/ruby-sdk'
+
+
