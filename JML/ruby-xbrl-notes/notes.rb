@@ -9,11 +9,11 @@ class IntrinioApp
 
   # As configured, this runs against api-v2 running locally.
   # comment out scheme & host to use the production server
-	Intrinio.configure do |config|
-		config.api_key['api_key'] = ENV['INTRINIO_API_KEY']
+  Intrinio.configure do |config|
+    config.api_key['api_key'] = ENV['INTRINIO_API_KEY']
     config.scheme = 'http'
     config.host = 'localhost:9292'
-	end
+  end
 
   # This will grab the first 3 pages of notes without any filtering (300 in total with 100 per page)
   # and take a sample size of `count`, and retrieve that many notes.  The return is an array
