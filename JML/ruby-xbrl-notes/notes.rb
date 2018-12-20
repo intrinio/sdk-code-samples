@@ -5,7 +5,7 @@ require 'intrinio-sdk'
 
 class IntrinioApp
 
-	puts "Loading IntrinioApp"
+  puts "Loading IntrinioApp"
 
   # As configured, this runs against api-v2 running locally.
   # comment out scheme & host to use the production server
@@ -146,7 +146,6 @@ class IntrinioApp
       page_count += 1
       puts "Pages retreived: #{page_count}, page data count: #{page_data.count}, total count: #{data.count}"
 
-      # break unless page.respond_to?(:next_page)
       break if page_data.none? || !page.respond_to?(:next_page) || page.next_page.nil?
       options[:next_page] = page.next_page
     end
