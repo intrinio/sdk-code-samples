@@ -11,9 +11,6 @@ class IntrinioApp
   # comment out scheme & host to use the production server
   Intrinio.configure do |config|
     config.api_key['api_key'] = ENV['INTRINIO_API_KEY']
-    binding.pry
-    # config.scheme = 'http'
-    # config.host = 'localhost:9292'
   end
 
   # This will grab the first 3 pages of notes without any filtering (300 in total with 100 per page)
