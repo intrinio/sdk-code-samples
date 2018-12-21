@@ -1,0 +1,16 @@
+{
+  "name": "intrinio-javascript-example",
+  "version": "1.0.0",
+  "description": "Example using Intrinio's Javascript SDK",
+  "main": "intrinio.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "intrinio": "file:/Users/jasonlandry/intrinio/intrinio-sdks/javascript-sdk",
+    "intrinio-sdk": "github:intrinio/javascript-sdk"
+  }
+}
