@@ -11,8 +11,9 @@ class IntrinioApp
   # comment out scheme & host to use the production server
   Intrinio.configure do |config|
     config.api_key['api_key'] = ENV['INTRINIO_API_KEY']
-    config.scheme = 'http'
-    config.host = 'localhost:9292'
+    binding.pry
+    # config.scheme = 'http'
+    # config.host = 'localhost:9292'
   end
 
   # This will grab the first 3 pages of notes without any filtering (300 in total with 100 per page)
@@ -45,7 +46,7 @@ class IntrinioApp
   # words against each note.  The results are returned with the best match first, lowest match
   # last.  Returns an array of Intrinio::FilingNote instances.
   def self.run_search(query, **options)
-    notes, pages = self.all_data(:search_xbrl_notes, query, options)
+    notes, pages = self.all_data(:search_notes, query, options)
     puts "Search for #{query} has #{notes.count} notes spanning #{pages} pages" 
     notes
   end
@@ -68,7 +69,7 @@ class IntrinioApp
 
     options = default_options.merge(options)
 
-    notes, pages = self.all_data(:filter_xbrl_notes, options)
+    notes, pages = self.all_data(:filter_notes, options)
  
     filing_dates = notes.map {|n| n.filing.filing_date}.uniq
     if filing_dates.count > 10
@@ -84,37 +85,37 @@ class IntrinioApp
 
   # Creates a reusable API instance that is used for all calls
   def self.filing_notes_api
-    @filing_notes_api ||= Intrinio::FilingNotesApi.new
+    @filing_notes_api ||= Intrinio::FilingApi.new
   end
 
 
-  # Uses the get_all_xbrl_notes and retrieves `max_pages` worth of data, combining them all into a single array
+  # Uses the get_all_notes and retrieves `max_pages` worth of data, combining them all into a single array
   def self.get_all_notes(max_pages: 100)
     options = { max_pages: max_pages }
-    notes, pages = self.all_data(:get_all_xbrl_notes, options)
+    notes, pages = self.all_data(:get_all_notes, options)
     puts "Get all notes has #{notes.count} notes spanning #{pages} pages, limited to #{max_pages} pages" 
     notes
   end
 
-  # Direct interface to the `search_xbrl_notes` endpoint
+  # Direct interface to the `search_notes` endpoint
   def self.search_notes(query: , **opts)
-    notes = filing_notes_api.search_xbrl_notes(query, opts)
+    notes = filing_notes_api.search_notes(query, opts)
   end
 
-  # Direct interface to the `get_xbrl_note` endpoint
+  # Direct interface to the `get_note` endpoint
   def self.get_note(id, content_format: "text")
     options = { content_format: content_format }
-    note = filing_notes_api.get_xbrl_note(id, options)
+    note = filing_notes_api.get_note(id, options)
   end
 
-  # Direct interface to the `get_xbrl_note_html` endpoint
+  # Direct interface to the `get_note_html` endpoint
   def self.get_note_html(id)
-    note = filing_notes_api.get_xbrl_note_html(id)
+    note = filing_notes_api.get_note_html(id)
   end
 
-  # Direct interface to the `get_xbrl_note_text` endpoint
+  # Direct interface to the `get_note_text` endpoint
   def self.get_note_text(id)
-    note = filing_notes_api.get_xbrl_note_text(id)
+    note = filing_notes_api.get_note_text(id)
   end
 
   # Intelligently handles calls to endpoints that return data across multiple
@@ -123,9 +124,9 @@ class IntrinioApp
   # in the API documentation.
   # RETURNS: an array of data assembled by merging each page's results into a single array
   # EXAMPLE (gets 10 pages of notes with "risk" filed within the last 90 days)
-  #   all_data(:search_xbrl_notes, "risk", max_pages: 10, filing_start_date: Date.today - 90) 
+  #   all_data(:search_notes, "risk", max_pages: 10, filing_start_date: Date.today - 90) 
   # EXAMPLE (gets 10 pages of notes for Apple Computer)
-  #   all_data(:get_all_xbrl_notes, max_pages: 10, company: 'AAPL') 
+  #   all_data(:get_all_notes, max_pages: 10, company: 'AAPL') 
   def self.all_data(method, *args, **options)
     max_pages = options.delete(:max_pages) || 100
     
