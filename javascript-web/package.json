@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "intrinio": "github:intrinio/javascript-sdk"
+    "browserify": "^16.2.3",
+    "intrinio-sdk": "^1.0.1",
+    "serve": "^10.1.1"
   }
 }
