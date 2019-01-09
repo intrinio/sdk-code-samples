@@ -21,7 +21,7 @@ municipalityAPI.getAllMunicipalities(opts).then(function(data) {
     console.log("Government type: " + municipality.government_type);
     console.log("Area type:       " + municipality.area_type);
     console.log("Area name:       " + municipality.area_name);
-    console.log("Location:        " + municipality.city + " " + municipality.state + " " + municipality.zip);
+    console.log("Location:        " + municipality.city + ", " + municipality.state + " " + municipality.zip);
   });
 }, function(error) {
   console.error(error);

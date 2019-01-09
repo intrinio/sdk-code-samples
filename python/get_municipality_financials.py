@@ -30,7 +30,7 @@ try:
     print("Current assets:      %s" % (financials.current_assets))
     print("Total assets:        %s" % (financials.total_assets))
     print("Current liabilities: %s" % (financials.current_liabilities))
-    print("Total assets:        %s" % (financials.total_liabilities))
+    print("Total liabilities:   %s" % (financials.total_liabilities))
     print("Total net position:  %s" % (financials.total_net_position))
     print("Total expenditures:  %s" % (financials.total_expenditures))
     print("Total revenues:      %s" % (financials.total_revenues))

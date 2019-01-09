@@ -31,7 +31,7 @@ begin
   puts "Current assets:      #{financials.current_assets}"
   puts "Total assets:        #{financials.total_assets}"
   puts "Current liabilities: #{financials.current_liabilities}"
-  puts "Total assets:        #{financials.total_liabilities}"
+  puts "Total liabilities:   #{financials.total_liabilities}"
   puts "Total net position:  #{financials.total_net_position}"
   puts "Total expenditures:  #{financials.total_expenditures}"
   puts "Total revenues:      #{financials.total_revenues}"

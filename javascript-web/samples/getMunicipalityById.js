@@ -25,7 +25,7 @@ municipalityAPI.getMunicipalityById(identifier).then(function(municipality) {
   console.log("Longitude:             " + municipality.longitude); 
   console.log("Location:              " + municipality.address1); 
   if (municipality.address2 !== null) { console.log("                       " + municipality.address2); }
-  console.log("                       " + municipality.city + " " + municipality.state + " " + municipality.zip);
+  console.log("                       " + municipality.city + ", " + municipality.state + " " + municipality.zip);
 }, function(error) {
   console.error(error);
 });

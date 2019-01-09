@@ -16,7 +16,7 @@ municipalityAPI.getMunicipalityFinancials(identifier).then(function(financials) 
   console.log("Government type: " + municipality.government_type);
   console.log("Area type:       " + municipality.area_type);
   console.log("Area name:       " + municipality.area_name);
-  console.log("Location:        " + municipality.city + " " + municipality.state + " " + municipality.zip);
+  console.log("Location:        " + municipality.city + ", " + municipality.state + " " + municipality.zip);
   console.log();
   console.log("FINANCIALS");
   console.log("-------------------------------------------------------------------------");
@@ -24,7 +24,7 @@ municipalityAPI.getMunicipalityFinancials(identifier).then(function(financials) 
   console.log("Current assets:      " + financials.current_assets);
   console.log("Total assets:        " + financials.total_assets);
   console.log("Current liabilities: " + financials.current_liabilities);
-  console.log("Total assets:        " + financials.total_liabilities);
+  console.log("Total liabilities:   " + financials.total_liabilities);
   console.log("Total net position:  " + financials.total_net_position);
   console.log("Total expenditures:  " + financials.total_expenditures);
   console.log("Total revenues:      " + financials.total_revenues);
