@@ -41,7 +41,7 @@ public class App
       System.out.println("Current liabilities: " + financials.getCurrentLiabilities());
       System.out.println("Total liabilities:   " + financials.getTotalLiabilities());
       System.out.println("Total net position:  " + financials.getTotalNetPosition());
-      System.out.println("Total expenditures:  " + financials.getTotalExpenditures());
+      System.out.println("Total expenses:      " + financials.getTotalExpenses());
       System.out.println("Total revenues:      " + financials.getTotalRevenues());
     } catch (ApiException e) {
       System.err.println("Exception when calling MunicipalityApi#getMunicipalityFinancials");

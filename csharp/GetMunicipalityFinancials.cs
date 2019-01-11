@@ -38,7 +38,7 @@ namespace Example
         Console.WriteLine("Current liabilities: " + financials.CurrentLiabilities);
         Console.WriteLine("Total liabilities:   " + financials.TotalLiabilities);
         Console.WriteLine("Total net position:  " + financials.TotalNetPosition);
-        Console.WriteLine("Total expenditures:  " + financials.TotalExpenditures);
+        Console.WriteLine("Total expenses:      " + financials.TotalExpeses);
         Console.WriteLine("Total revenues:      " + financials.TotalRevenues);
       }
       catch (Exception e)

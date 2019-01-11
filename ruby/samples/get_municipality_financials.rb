@@ -33,7 +33,7 @@ begin
   puts "Current liabilities: #{financials.current_liabilities}"
   puts "Total liabilities:   #{financials.total_liabilities}"
   puts "Total net position:  #{financials.total_net_position}"
-  puts "Total expenditures:  #{financials.total_expenditures}"
+  puts "Total expenses:      #{financials.total_expenses}"
   puts "Total revenues:      #{financials.total_revenues}"
   
 rescue Intrinio::ApiError => e

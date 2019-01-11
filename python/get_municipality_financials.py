@@ -32,7 +32,7 @@ try:
     print("Current liabilities: %s" % (financials.current_liabilities))
     print("Total liabilities:   %s" % (financials.total_liabilities))
     print("Total net position:  %s" % (financials.total_net_position))
-    print("Total expenditures:  %s" % (financials.total_expenditures))
+    print("Total expenses:      %s" % (financials.total_expenses))
     print("Total revenues:      %s" % (financials.total_revenues))
 except ApiException as e:
     print("Exception when calling MunicipalityApi->get_municipality_financials: %s\n" % e)

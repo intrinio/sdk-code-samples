@@ -26,7 +26,7 @@ municipalityAPI.getMunicipalityFinancials(identifier).then(function(financials) 
   console.log("Current liabilities: " + financials.current_liabilities);
   console.log("Total liabilities:   " + financials.total_liabilities);
   console.log("Total net position:  " + financials.total_net_position);
-  console.log("Total expenditures:  " + financials.total_expenditures);
+  console.log("Total expenses:      " + financials.total_expenses);
   console.log("Total revenues:      " + financials.total_revenues);
 }, function(error) {
   console.error(error);
