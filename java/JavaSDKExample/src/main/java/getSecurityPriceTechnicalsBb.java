@@ -32,22 +32,20 @@ public class App
     String nextPage = null; // String | gets the next page of data from an already-executed API call
 
     try {
-      ApiResponseSecurityTechnicalsBb result = securityApi.getSecurityPriceTechnicalsBb(identifier, period, standardDeviations, priceKey, startDate, startTime, endDate, endTime, timezone, pageSize, nextPage);
+      ApiResponseSecurityBollingerBands result = securityApi.getSecurityPriceTechnicalsBb(identifier, period, standardDeviations, priceKey, startDate, startTime, endDate, endTime, timezone, pageSize, nextPage);
       SecuritySummary security = result.getSecurity();
-      Indicator indicator = result.getIndicator();
-      List<BbTechnicals> technicals = result.getTechnicals();
+      TechnicalIndicator indicator = result.getIndicator();
+      List<BollingerBandsTechnicalValue> technicals = result.getTechnicals();
 
       System.out.println("Technicals for " + security.getTicker());
       System.out.println(technicals.size() + " values for " + indicator.getName() + " returned!");
       System.out.println();
 
-      for (BbTechnicals technical : technicals) {
+      for (BollingerBandsTechnicalValue technical : technicals) {
         System.out.println("DateTime:    " + technical.getDateTime());
-
-        BbTechnicalsValue value = technical.getValue();
-        System.out.println("Lower Band:  " + value.getLowerBand());
-        System.out.println("Middle Band: " + value.getMiddleBand());
-        System.out.println("Upper Band:  " + value.getUpperBand());
+        System.out.println("Lower Band:  " + technical.getLowerBand());
+        System.out.println("Middle Band: " + technical.getMiddleBand());
+        System.out.println("Upper Band:  " + technical.getUpperBand());
         System.out.println("-----------------------------------------------------------------------");
       }
     } catch (ApiException e) {

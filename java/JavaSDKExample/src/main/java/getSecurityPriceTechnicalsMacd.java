@@ -33,22 +33,20 @@ public class App
     String nextPage = null; // String | gets the next page of data from an already-executed API call
 
     try {
-      ApiResponseSecurityTechnicalsMacd result = securityApi.getSecurityPriceTechnicalsMacd(identifier, fastPeriod, slowPeriod, signalPeriod, priceKey, startDate, startTime, endDate, endTime, timezone, pageSize, nextPage);
+      ApiResponseSecurityMovingAverageConvergenceDivergence result = securityApi.getSecurityPriceTechnicalsMacd(identifier, fastPeriod, slowPeriod, signalPeriod, priceKey, startDate, startTime, endDate, endTime, timezone, pageSize, nextPage);
       SecuritySummary security = result.getSecurity();
-      Indicator indicator = result.getIndicator();
-      List<MacdTechnicals> technicals = result.getTechnicals();
+      TechnicalIndicator indicator = result.getIndicator();
+      List<MovingAverageConvergenceDivergenceTechnicalValue> technicals = result.getTechnicals();
 
       System.out.println("Technicals for " + security.getTicker());
       System.out.println(technicals.size() + " values for " + indicator.getName() + " returned!");
       System.out.println();
 
-      for (MacdTechnicals technical : technicals) {
+      for (MovingAverageConvergenceDivergenceTechnicalValue technical : technicals) {
         System.out.println("DateTime:       " + technical.getDateTime());
-
-        MacdTechnicalsValue value = technical.getValue();
-        System.out.println("MACD Histogram: " + value.getMacdHistogram());
-        System.out.println("MACD Line:      " + value.getMacdLine());
-        System.out.println("Signal Line:    " + value.getSignalLine());
+        System.out.println("MACD Histogram: " + technical.getMacdHistogram());
+        System.out.println("MACD Line:      " + technical.getMacdLine());
+        System.out.println("Signal Line:    " + technical.getSignalLine());
         System.out.println("-----------------------------------------------------------------------");
       }
     } catch (ApiException e) {

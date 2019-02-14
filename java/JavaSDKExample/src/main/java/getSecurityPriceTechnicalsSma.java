@@ -31,18 +31,18 @@ public class App
     String nextPage = null; // String | gets the next page of data from an already-executed API call
 
     try {
-      ApiResponseSecurityTechnicalsSingleValue result = securityApi.getSecurityPriceTechnicalsSma(identifier, period, priceKey, startDate, startTime, endDate, endTime, timezone, pageSize, nextPage);
+      ApiResponseSecuritySimpleMovingAverage result = securityApi.getSecurityPriceTechnicalsSma(identifier, period, priceKey, startDate, startTime, endDate, endTime, timezone, pageSize, nextPage);
       SecuritySummary security = result.getSecurity();
-      Indicator indicator = result.getIndicator();
-      List<Technical> technicals = result.getTechnicals();
+      TechnicalIndicator indicator = result.getIndicator();
+      List<SimpleMovingAverageTechnicalValue> technicals = result.getTechnicals();
 
       System.out.println("Technicals for " + security.getTicker());
       System.out.println(technicals.size() + " values for " + indicator.getName() + " returned!");
       System.out.println();
 
-      for (Technical technical : technicals) {
+      for (SimpleMovingAverageTechnicalValue technical : technicals) {
         System.out.println("DateTime: " + technical.getDateTime());
-        System.out.println("SMA:      " + technical.getValue());
+        System.out.println("SMA:      " + technical.getSma());
         System.out.println("-----------------------------------------------------------------------");
       }
     } catch (ApiException e) {
