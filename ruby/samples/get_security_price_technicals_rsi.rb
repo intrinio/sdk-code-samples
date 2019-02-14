@@ -28,7 +28,7 @@ begin
 
   technicals.each do |t|
     puts "DateTime: #{t.date_time}"
-    puts "RSI:      #{t.value}"
+    puts "RSI:      #{t.rsi}"
     puts "----------------------------------------------------------------"
   end
 

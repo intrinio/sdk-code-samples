@@ -24,9 +24,9 @@ begin
 
   technicals.each do |t|
     puts "DateTime:       #{t.date_time}"
-    puts "MACD Histogram: #{t.value.macd_histogram}"
-    puts "MACD Line:      #{t.value.macd_line}"
-    puts "Signal Line:    #{t.value.signal_line}"
+    puts "MACD Histogram: #{t.macd_histogram}"
+    puts "MACD Line:      #{t.macd_line}"
+    puts "Signal Line:    #{t.signal_line}"
     puts "----------------------------------------------------------------"
   end
 

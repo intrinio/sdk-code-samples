@@ -24,7 +24,7 @@ begin
 
   technicals.each do |t|
     puts "DateTime: #{t.date_time}"
-    puts "SMA:      #{t.value}"
+    puts "SMA:      #{t.sma}"
     puts "----------------------------------------------------------------"
   end
 

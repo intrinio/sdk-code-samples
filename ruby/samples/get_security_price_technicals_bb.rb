@@ -31,9 +31,9 @@ begin
 
   technicals.each do |t|
     puts "DateTime:    #{t.date_time}"
-    puts "Lower band:  #{t.value.lower_band}"
-    puts "Middle band: #{t.value.middle_band}"
-    puts "Upper band:  #{t.value.upper_band}"
+    puts "Lower band:  #{t.lower_band}"
+    puts "Middle band: #{t.middle_band}"
+    puts "Upper band:  #{t.upper_band}"
     puts "----------------------------------------------------------------"
   end
 
