@@ -25,11 +25,9 @@ try:
 
     for technical in technicals:
         pprint("DateTime:    %s" % technical.date_time)
-
-        value = technical.value
-        pprint("Lower Band:  %s" % value.lower_band)
-        pprint("Middle Band: %s" % value.middle_band)
-        pprint("Upper Band:  %s" % value.upper_band)
+        pprint("Lower Band:  %s" % technical.lower_band)
+        pprint("Middle Band: %s" % technical.middle_band)
+        pprint("Upper Band:  %s" % technical.upper_band)
         pprint("------------------------------------------------------")
 except ApiException as e:
     print("Exception when calling SecurityApi->get_security_price_technicals_bb: %s\n" % e)

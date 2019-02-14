@@ -24,7 +24,7 @@ try:
 
     for technical in technicals:
         pprint("DateTime: %s" % technical.date_time)
-        pprint("RSI:      %s" % technical.value)
+        pprint("RSI:      %s" % technical.rsi)
         pprint("------------------------------------------------------")
 except ApiException as e:
     print("Exception when calling SecurityApi->get_security_price_technicals_rsi: %s\n" % e)

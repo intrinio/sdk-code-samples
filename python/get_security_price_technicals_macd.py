@@ -22,11 +22,9 @@ try:
 
     for technical in technicals:
         pprint("DateTime:       %s" % technical.date_time)
-
-        value = technical.value
-        pprint("MACD Histogram: %s" % value.macd_histogram)
-        pprint("MACD Line:      %s" % value.macd_line)
-        pprint("Signal Line:    %s" % value.signal_line)
+        pprint("MACD Histogram: %s" % technical.macd_histogram)
+        pprint("MACD Line:      %s" % technical.macd_line)
+        pprint("Signal Line:    %s" % technical.signal_line)
         pprint("------------------------------------------------------")
 except ApiException as e:
     print("Exception when calling SecurityApi->get_security_price_technicals_macd: %s\n" % e)

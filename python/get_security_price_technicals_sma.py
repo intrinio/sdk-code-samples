@@ -22,7 +22,7 @@ try:
 
     for technical in technicals:
         pprint("DateTime: %s" % technical.date_time)
-        pprint("SMA:      %s" % technical.value)
+        pprint("SMA:      %s" % technical.sma)
         pprint("------------------------------------------------------")
 except ApiException as e:
     print("Exception when calling SecurityApi->get_security_price_technicals_sma: %s\n" % e)
