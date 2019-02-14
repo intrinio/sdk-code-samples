@@ -21,7 +21,7 @@ securityAPI.getSecurityPriceTechnicalsSma(identifier, opts).then(function(data) 
 
   technicals.forEach(function(technical){
     console.log("DateTime: " + technical.date_time);
-    console.log("SMA:      " + technical.value);
+    console.log("SMA:      " + technical.sma);
     console.log("--------------------------------------------------------------------------------");
   });
   

@@ -19,7 +19,7 @@ securityAPI.getSecurityPriceTechnicalsRsi(identifier, opts).then(function(data) 
 
   technicals.forEach(function(technical){
     console.log("DateTime: " + technical.date_time);
-    console.log("RSI:      " + technical.value);
+    console.log("RSI:      " + technical.rsi);
     console.log("--------------------------------------------------------------------------------");
   });
   
