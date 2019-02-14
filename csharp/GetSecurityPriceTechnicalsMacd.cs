@@ -29,23 +29,21 @@ namespace Example
 
       try
       {
-        ApiResponseSecurityTechnicalsMacd result = securityApi.GetSecurityPriceTechnicalsMacd(identifier, fastPeriod, slowPeriod, signalPeriod, priceKey, startDate, startTime, endDate, endTime, timezone, pageSize, nextPage);
-        Indicator indicator = result.Indicator;
+        ApiResponseSecurityMovingAverageConvergenceDivergence result = securityApi.GetSecurityPriceTechnicalsMacd(identifier, fastPeriod, slowPeriod, signalPeriod, priceKey, startDate, startTime, endDate, endTime, timezone, pageSize, nextPage);
+        TechnicalIndicator indicator = result.Indicator;
         SecuritySummary security = result.Security;
-        List<MacdTechnicals> technicals = result.Technicals;
+        List<MovingAverageConvergenceDivergenceTechnicalValue> technicals = result.Technicals;
 
         Console.WriteLine("Technicals for " + security.Ticker);
         Console.WriteLine(technicals.Count + " values for " + indicator.Name + " returned!");
         Console.WriteLine();
 
-        technicals.ForEach(delegate (MacdTechnicals technical)
+        technicals.ForEach(delegate (MovingAverageConvergenceDivergenceTechnicalValue technical)
         {
           Console.WriteLine("DateTime:       " + technical.DateTime);
-
-          MacdTechnicalsValue value = technical.Value;
-          Console.WriteLine("MACD Histogram: " + value.MacdHistogram);
-          Console.WriteLine("MACD Line:      " + value.MacdLine);
-          Console.WriteLine("Signal Line:    " + value.SignalLine);
+          Console.WriteLine("MACD Histogram: " + technical.MacdHistogram);
+          Console.WriteLine("MACD Line:      " + technical.MacdLine);
+          Console.WriteLine("Signal Line:    " + technical.SignalLine);
           Console.WriteLine("---------------------------------------------------");
         });
       }

@@ -27,19 +27,19 @@ namespace Example
 
       try
       {
-        ApiResponseSecurityTechnicalsSingleValue result = securityApi.GetSecurityPriceTechnicalsSma(identifier, period, priceKey, startDate, startTime, endDate, endTime, timezone, pageSize, nextPage);
-        Indicator indicator = result.Indicator;
+        ApiResponseSecuritySimpleMovingAverage result = securityApi.GetSecurityPriceTechnicalsSma(identifier, period, priceKey, startDate, startTime, endDate, endTime, timezone, pageSize, nextPage);
+        TechnicalIndicator indicator = result.Indicator;
         SecuritySummary security = result.Security;
-        List<Technical> technicals = result.Technicals;
+        List<SimpleMovingAverageTechnicalValue> technicals = result.Technicals;
 
         Console.WriteLine("Technicals for " + security.Ticker);
         Console.WriteLine(technicals.Count + " values for " + indicator.Name + " returned!");
         Console.WriteLine();
 
-        technicals.ForEach(delegate (Technical technical)
+        technicals.ForEach(delegate (SimpleMovingAverageTechnicalValue technical)
         {
           Console.WriteLine("DateTime: " + technical.DateTime);
-          Console.WriteLine("SMA:      " + technical.Value);
+          Console.WriteLine("SMA:      " + technical.Sma);
           Console.WriteLine("---------------------------------------------------");
         });
       }

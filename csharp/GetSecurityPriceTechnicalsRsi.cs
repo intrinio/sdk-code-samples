@@ -27,19 +27,19 @@ namespace Example
 
       try
       {
-        ApiResponseSecurityTechnicalsSingleValue result = securityApi.GetSecurityPriceTechnicalsRsi(identifier, period, priceKey, startDate, startTime, endDate, endTime, timezone, pageSize, nextPage);
-        Indicator indicator = result.Indicator;
+        ApiResponseSecurityRelativeStrengthIndex result = securityApi.GetSecurityPriceTechnicalsRsi(identifier, period, priceKey, startDate, startTime, endDate, endTime, timezone, pageSize, nextPage);
+        TechnicalIndicator indicator = result.Indicator;
         SecuritySummary security = result.Security;
-        List<Technical> technicals = result.Technicals;
+        List<RelativeStrengthIndexTechnicalValue> technicals = result.Technicals;
 
         Console.WriteLine("Technicals for " + security.Ticker);
         Console.WriteLine(technicals.Count + " values for " + indicator.Name + " returned!");
         Console.WriteLine();
 
-        technicals.ForEach(delegate (Technical technical)
+        technicals.ForEach(delegate (RelativeStrengthIndexTechnicalValue technical)
         {
           Console.WriteLine("DateTime: " + technical.DateTime);
-          Console.WriteLine("RSI:      " + technical.Value);
+          Console.WriteLine("RSI:      " + technical.Rsi);
           Console.WriteLine("---------------------------------------------------");
         });
       }

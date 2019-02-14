@@ -28,23 +28,21 @@ namespace Example
 
       try
       {
-        ApiResponseSecurityTechnicalsBb result = securityApi.GetSecurityPriceTechnicalsBb(identifier, period, standardDeviations, priceKey, startDate, startTime, endDate, endTime, timezone, pageSize, nextPage);
-        Indicator indicator = result.Indicator;
+        ApiResponseSecurityBollingerBands result = securityApi.GetSecurityPriceTechnicalsBb(identifier, period, standardDeviations, priceKey, startDate, startTime, endDate, endTime, timezone, pageSize, nextPage);
+        TechnicalIndicator indicator = result.Indicator;
         SecuritySummary security = result.Security;
-        List<BbTechnicals> technicals = result.Technicals;
+        List<BollingerBandsTechnicalValue> technicals = result.Technicals;
 
         Console.WriteLine("Technicals for " + security.Ticker);
         Console.WriteLine(technicals.Count + " values for " + indicator.Name + " returned!");
         Console.WriteLine();
 
-        technicals.ForEach(delegate (BbTechnicals technical)
+        technicals.ForEach(delegate (BollingerBandsTechnicalValue technical)
         {
           Console.WriteLine("DateTime:    " + technical.DateTime);
-
-          BbTechnicalsValue value = technical.Value;
-          Console.WriteLine("Lower Band:  " + value.LowerBand);
-          Console.WriteLine("Middle Band: " + value.MiddleBand);
-          Console.WriteLine("Upper Band:  " + value.UpperBand);
+          Console.WriteLine("Lower Band:  " + technical.LowerBand);
+          Console.WriteLine("Middle Band: " + technical.MiddleBand);
+          Console.WriteLine("Upper Band:  " + technical.UpperBand);
           Console.WriteLine("---------------------------------------------------");
         });
       }
