@@ -9,9 +9,9 @@ end
 crypto_api = Intrinio::CryptoApi.new
  
 opts = { 
-  pair: "btcusd", # String | Return the order book asks for the given Crypto Currency Pair.
-  exchange: "gemini", # String | Return the order book asks for a Crypto Currency on the given Crypto Exchange.
-  currency: "BTC" # String | Return the order book asks for the given Crypto Currency.
+  pair: "btcusd", # String | Return the order book bids for the given Crypto Currency Pair.
+  exchange: "gemini", # String | Return the order book bids for a Crypto Currency on the given Crypto Exchange.
+  currency: "BTC" # String | Return the order book bids for the given Crypto Currency.
 }
 
 begin
