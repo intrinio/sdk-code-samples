@@ -23,6 +23,7 @@ namespace Example
             try
             {
                 ApiResponseSecurityStockPrices result = securityApi.GetSecurityStockPrices(identifier, DateTime.Parse(startDate), DateTime.Parse(endDate), frequency, pageSize, nextPage);
+
                 result.StockPrices.ForEach((StockPriceSummary stockPriceSummary) => Console.WriteLine(stockPriceSummary));
             }
             catch (Exception e)
