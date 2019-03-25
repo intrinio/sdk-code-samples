@@ -20,20 +20,20 @@ namespace Example
       try
       {
         ApiResponseCryptoStats result = cryptoApi.GetCryptoStats(exchange, currency);
-        List<CryptoStat> currencies = result.Currencies;
-        Console.WriteLine(currencies.Count + " currency stats found!");
+        List<CryptoStat> stats = result.Stats;
+        Console.WriteLine(stats.Count + " stats found!");
         Console.WriteLine();
 
-        currencies.ForEach(delegate (CryptoStat crypto_currency)
+        stats.ForEach(delegate (CryptoStat stat)
         {
-          Console.WriteLine("Name:             " + crypto_currency.Name);
-          Console.WriteLine("Code:             " + crypto_currency.Code);
-          Console.WriteLine("Symbol:           " + crypto_currency.Symbol);
-          Console.WriteLine("Market cap(USD):  " + crypto_currency.MarketCapUsd);
-          Console.WriteLine("Available supply: " + crypto_currency.AvailableSupply);
-          Console.WriteLine("Total supply:     " + crypto_currency.TotalSupply);
-          Console.WriteLine("Max supply:       " + crypto_currency.MaxSupply);
-          Console.WriteLine("Last updated:     " + crypto_currency.LastUpdated);
+          Console.WriteLine("Name:             " + stat.Name);
+          Console.WriteLine("Code:             " + stat.Code);
+          Console.WriteLine("Symbol:           " + stat.Symbol);
+          Console.WriteLine("Market cap(USD):  " + stat.MarketCapUsd);
+          Console.WriteLine("Available supply: " + stat.AvailableSupply);
+          Console.WriteLine("Total supply:     " + stat.TotalSupply);
+          Console.WriteLine("Max supply:       " + stat.MaxSupply);
+          Console.WriteLine("Last updated:     " + stat.LastUpdated);
           Console.WriteLine();
         });
       }

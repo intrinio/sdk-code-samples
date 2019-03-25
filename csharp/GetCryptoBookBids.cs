@@ -21,7 +21,7 @@ namespace Example
       try
       {
         ApiResponseCryptoBookBids result = cryptoApi.GetCryptoBookBids(pair, exchange, currency);
-        List<CryptoBid> crypto_bids = result.Bids;
+        List<CryptoBookEntry> crypto_bids = result.Bids;
 
         CryptoPairSummary crypto_pair = result.Pair;
         Console.WriteLine("Crypto Currency Pair: " + crypto_pair.Name);
@@ -32,7 +32,7 @@ namespace Example
         Console.WriteLine();
         Console.WriteLine("----------------- BIDS -----------------");
 
-        crypto_bids.ForEach(delegate (CryptoBid bid)
+        crypto_bids.ForEach(delegate (CryptoBookEntry bid)
         {
           Console.WriteLine();
           Console.WriteLine("Price: " + bid.Price);

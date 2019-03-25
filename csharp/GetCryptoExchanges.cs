@@ -31,14 +31,6 @@ namespace Example
           Console.WriteLine("Book depth available: " + exchange.BookDepthAvailable);
           Console.WriteLine("History available:    " + exchange.HistoryAvailable);
           Console.WriteLine("Trades available:     " + exchange.TradesAvailable);
-
-          List<String> pairs = exchange.Pairs;
-          Console.WriteLine("Pairs:");
-          pairs.ForEach(delegate (String crypto_pair)
-          {
-            Console.WriteLine("  - " + crypto_pair);
-          });
-
           Console.WriteLine();
         });
       }

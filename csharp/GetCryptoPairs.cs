@@ -20,7 +20,7 @@ namespace Example
       try
       {
         ApiResponseCryptoPairs result = cryptoApi.GetCryptoPairs(exchange, currency);
-        List<CryptoPair> pairs = result.CurrencyPairs;
+        List<CryptoPair> pairs = result.Pairs;
 
         Console.WriteLine(pairs.Count + " pairs found!");
         Console.WriteLine();
@@ -36,21 +36,6 @@ namespace Example
           Console.WriteLine("History available:    " + pair.HistoryAvailable);
           Console.WriteLine("Snapshot available:   " + pair.SnapshotAvailable);
           Console.WriteLine("Trades available:     " + pair.TradesAvailable);
-
-          List<String> currencies = pair.Currencies;
-          Console.WriteLine("Currencies:");
-          currencies.ForEach(delegate (String crypto_currency)
-          {
-            Console.WriteLine("  - " + crypto_currency);
-          });
-
-          List<String> exchanges = pair.Exchanges;
-          Console.WriteLine("Exchanges:");
-          exchanges.ForEach(delegate (String crypto_exchange)
-          {
-            Console.WriteLine("  - " + crypto_exchange);
-          });
-
           Console.WriteLine();
         });
       }
