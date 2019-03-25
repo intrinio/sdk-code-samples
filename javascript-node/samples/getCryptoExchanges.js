@@ -21,12 +21,6 @@ cryptoAPI.getCryptoExchanges(opts).then(function(data) {
     console.log('History available:    ' + exchange.history_available);
     console.log('Snapshot available:   ' + exchange.snapshot_available);
     console.log('Trades available:     ' + exchange.trades_available);
-
-    console.log('Pairs: ');
-    exchange.pairs.forEach(function(pair) {
-      console.log('  - ' + pair);
-    });
-
     console.log();
   });
 }, function(error) {

@@ -9,19 +9,19 @@ var opts = {
 };
  
 cryptoAPI.getCryptoStats(opts).then(function(data) {
-  var currencies = data.currencies;
+  var stats = data.stats;
 
-  console.log(currencies.length + ' currency stats found!');
+  console.log(stats.length + ' stats found!');
 
-  currencies.forEach(function(currency) {
-    console.log('Name:             ' + currency.name);
-    console.log('Code:             ' + currency.code);
-    console.log('Symbol:           ' + currency.symbol);
-    console.log('Market cap(USD):  ' + currency.market_cap_usd);
-    console.log('Available supply: ' + currency.available_supply);
-    console.log('Total supply:     ' + currency.total_supply);
-    console.log('Max supply:       ' + currency.max_supply);
-    console.log('Last updated:     ' + currency.last_updated);
+  stats.forEach(function(stat) {
+    console.log('Name:             ' + stat.name);
+    console.log('Code:             ' + stat.code);
+    console.log('Symbol:           ' + stat.symbol);
+    console.log('Market cap(USD):  ' + stat.market_cap_usd);
+    console.log('Available supply: ' + stat.available_supply);
+    console.log('Total supply:     ' + stat.total_supply);
+    console.log('Max supply:       ' + stat.max_supply);
+    console.log('Last updated:     ' + stat.last_updated);
     console.log();
   });
 }, function(error) {
