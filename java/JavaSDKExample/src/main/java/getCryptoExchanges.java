@@ -31,13 +31,6 @@ public class App
         System.out.println("Book depth available: " + exchange.isisBookDepthAvailable());
         System.out.println("History available:    " + exchange.isisHistoryAvailable());
         System.out.println("Trades available:     " + exchange.isisTradesAvailable());
-
-        List<String> pairs = exchange.getPairs();
-        System.out.println("Pairs:");
-        for (String crypto_pair : pairs) {
-          System.out.println("  - " + crypto_pair);
-        }
-
         System.out.println();
       }
     } catch (ApiException e) {

@@ -23,7 +23,7 @@ public class App
 
     try {
       ApiResponseCryptoBookBids result = cryptoApi.getCryptoBookBids(pair, exchange, currency);
-      List<CryptoBid> crypto_bids = result.getBids();
+      List<CryptoBookEntry> crypto_bids = result.getBids();
 
       CryptoPairSummary crypto_pair = result.getPair();
       System.out.println("Crypto Currency Pair: " + crypto_pair.getName());
@@ -34,7 +34,7 @@ public class App
       System.out.println();
       System.out.println("----------------- BIDS -----------------");
 
-      for (CryptoBid bid : crypto_bids) {
+      for (CryptoBookEntry bid : crypto_bids) {
         System.out.println();
         System.out.println("Price: " + bid.getPrice());
         System.out.println("Size:  " + bid.getSize());

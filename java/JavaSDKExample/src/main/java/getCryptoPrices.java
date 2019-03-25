@@ -26,9 +26,10 @@ public class App
     String endDate = "2019-01-01"; // String | Return Crypto Prices on or before this date.
     String endTime = "21:01:21"; // String | Return Crypto Prices at or before this time (24-hour).
     Integer pageSize = 100; // Integer | An integer greater than or equal to 1 for specifying the number of results on each page.
-
+    String nextPage = null; // String | Gets the next page of data from a previous API call
+     
     try {
-      ApiResponseCryptoPrices result = cryptoApi.getCryptoPrices(timeframe, pair, exchange, currency, timezone, startDate, startTime, endDate, endTime, pageSize);
+      ApiResponseCryptoPrices result = cryptoApi.getCryptoPrices(timeframe, pair, exchange, currency, timezone, startDate, startTime, endDate, endTime, pageSize, nextPage);
       List<CryptoPrice> prices = result.getPrices();
       CryptoPairSummary crypto_pair = result.getPair();
       CryptoExchangeSummary crypto_exchange = result.getExchange();
@@ -37,13 +38,13 @@ public class App
       System.out.println();
 
       for (CryptoPrice price : prices) {
+        System.out.println();
         System.out.println("Time:   " + price.getTime());
         System.out.println("Open:   " + price.getOpen());
         System.out.println("High:   " + price.getHigh());
         System.out.println("Low:    " + price.getLow());
         System.out.println("Close:  " + price.getClose());
         System.out.println("Volume: " + price.getVolume());
-        System.out.println();
       }
     } catch (ApiException e) {
       System.err.println("Exception when calling CryptoApi#getCryptoPrices");

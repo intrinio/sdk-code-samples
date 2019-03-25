@@ -21,19 +21,19 @@ public class App
 
     try {
       ApiResponseCryptoStats result = cryptoApi.getCryptoStats(exchange, currency);
-      List<CryptoStat> currencies = result.getCurrencies();
-      System.out.println(currencies.size() + " currency stats found!");
+      List<CryptoStat> stats = result.getStats();
+      System.out.println(stats.size() + " stats found!");
       System.out.println();
 
-      for(CryptoStat crypto_currency : currencies) {
-        System.out.println("Name:             " + crypto_currency.getName());
-        System.out.println("Code:             " + crypto_currency.getCode());
-        System.out.println("Symbol:           " + crypto_currency.getSymbol());
-        System.out.println("Market cap(USD):  " + crypto_currency.getMarketCapUsd());
-        System.out.println("Available supply: " + crypto_currency.getAvailableSupply());
-        System.out.println("Total supply:     " + crypto_currency.getTotalSupply());
-        System.out.println("Max supply:       " + crypto_currency.getMaxSupply());
-        System.out.println("Last updated:     " + crypto_currency.getLastUpdated());
+      for(CryptoStat stat : stats) {
+        System.out.println("Name:             " + stat.getName());
+        System.out.println("Code:             " + stat.getCode());
+        System.out.println("Symbol:           " + stat.getSymbol());
+        System.out.println("Market cap(USD):  " + stat.getMarketCapUsd());
+        System.out.println("Available supply: " + stat.getAvailableSupply());
+        System.out.println("Total supply:     " + stat.getTotalSupply());
+        System.out.println("Max supply:       " + stat.getMaxSupply());
+        System.out.println("Last updated:     " + stat.getLastUpdated());
         System.out.println();
       }
     } catch (ApiException e) {

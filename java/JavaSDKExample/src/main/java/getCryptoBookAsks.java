@@ -23,7 +23,7 @@ public class App
 
     try {
       ApiResponseCryptoBookAsks result = cryptoApi.getCryptoBookAsks(pair, exchange, currency);
-      List<CryptoAsk> crypto_asks = result.getAsks();
+      List<CryptoBookEntry> crypto_asks = result.getAsks();
 
       CryptoPairSummary crypto_pair = result.getPair();
       System.out.println("Crypto Currency Pair: " + crypto_pair.getName());
@@ -34,13 +34,13 @@ public class App
       System.out.println();
       System.out.println("----------------- ASKS -----------------");
 
-      for (CryptoAsk ask : crypto_asks) {
+      for (CryptoBookEntry ask : crypto_asks) {
         System.out.println();
         System.out.println("Price: " + ask.getPrice());
         System.out.println("Size:  " + ask.getSize());
       }
     } catch (ApiException e) {
-      System.err.println("Exception when calling CryptoApi#getCryptoBookAsks";
+      System.err.println("Exception when calling CryptoApi#getCryptoBookAsks");
       e.printStackTrace();
     }
   }

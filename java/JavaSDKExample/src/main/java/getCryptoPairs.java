@@ -18,16 +18,19 @@ public class App
     CryptoApi cryptoApi = new CryptoApi();
     String exchange = "gemini"; // String | Return pairs traded on the given Crypto Exchange.
     String currency = "BTC"; // String | Return pairs with one side being the given Crypto Currency.
-
+    Integer pageSize = 100; // Integer | An integer greater than or equal to 1 for specifying the number of results on each page.
+    String nextPage = null; // String | Gets the next page of data from a previous API call
+ 
     try {
-      ApiResponseCryptoPairs result = cryptoApi.getCryptoPairs(exchange, currency);
-      List<CryptoPair> pairs = result.getCurrencyPairs();
+      ApiResponseCryptoPairs result = cryptoApi.getCryptoPairs(exchange, currency, pageSize, nextPage);
+      List<CryptoPair> pairs = result.getPairs();
 
       System.out.println(pairs.size() + " pairs found!");
       System.out.println();
 
       System.out.println("----------------------------------------------------");
       for (CryptoPair pair : pairs) {
+        System.out.println();
         System.out.println("Name:                 " + pair.getName());
         System.out.println("Code:                 " + pair.getCode());
         System.out.println("First price date:     " + pair.getFirstPriceDate());
@@ -36,20 +39,6 @@ public class App
         System.out.println("History available:    " + pair.isisHistoryAvailable());
         System.out.println("Snapshot available:   " + pair.isisSnapshotAvailable());
         System.out.println("Trades available:     " + pair.isisTradesAvailable());
-
-        List<String> currencies = pair.getCurrencies();
-        System.out.println("Currencies:");
-        for (String crypto_currency : currencies) {
-          System.out.println("  - " + crypto_currency);
-        }
-
-        List<String> exchanges = pair.getExchanges();
-        System.out.println("Exchanges:");
-        for (String crypto_exchange : exchanges) {
-          System.out.println("  - " + crypto_exchange);
-        }
-
-        System.out.println();
       }
     } catch (ApiException e) {
       System.err.println("Exception when calling CryptoApi#getCryptoPairs");
