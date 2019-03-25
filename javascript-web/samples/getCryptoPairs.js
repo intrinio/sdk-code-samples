@@ -10,8 +10,8 @@ var opts = {
  
 cryptoAPI.getCryptoPairs(opts).then(function(data) {
   $('#apiResult').html(JSON.stringify(data, undefined, 2));
-  
-  var pairs = data.currency_pairs;
+
+  var pairs = data.pairs;
   
   console.log(pairs.length + ' pairs found!');
 
@@ -26,17 +26,6 @@ cryptoAPI.getCryptoPairs(opts).then(function(data) {
     console.log('History available:    ' + pair.history_available);
     console.log('Snapshot available:   ' + pair.snapshot_available);
     console.log('Trades available:     ' + pair.trades_available);
-
-    console.log('Currencies: ');
-    pair.currencies.forEach(function(currency) {
-      console.log('  - ' + currency);
-    });
-
-    console.log('Exchanges: ');
-    pair.exchanges.forEach(function(exchange) {
-      console.log('  - ' + exchange);
-    });
-
     console.log();
   });
 }, function(error) {

@@ -10,20 +10,20 @@ var opts = {
  
 cryptoAPI.getCryptoStats(opts).then(function(data) {
   $('#apiResult').html(JSON.stringify(data, undefined, 2));
-  
-  var currencies = data.currencies;
 
-  console.log(currencies.length + ' currency stats found!');
+  var stats = data.stats;
 
-  currencies.forEach(function(currency) {
-    console.log('Name:             ' + currency.name);
-    console.log('Code:             ' + currency.code);
-    console.log('Symbol:           ' + currency.symbol);
-    console.log('Market cap(USD):  ' + currency.market_cap_usd);
-    console.log('Available supply: ' + currency.available_supply);
-    console.log('Total supply:     ' + currency.total_supply);
-    console.log('Max supply:       ' + currency.max_supply);
-    console.log('Last updated:     ' + currency.last_updated);
+  console.log(stats.length + ' stats found!');
+
+  stats.forEach(function(stat) {
+    console.log('Name:             ' + stat.name);
+    console.log('Code:             ' + stat.code);
+    console.log('Symbol:           ' + stat.symbol);
+    console.log('Market cap(USD):  ' + stat.market_cap_usd);
+    console.log('Available supply: ' + stat.available_supply);
+    console.log('Total supply:     ' + stat.total_supply);
+    console.log('Max supply:       ' + stat.max_supply);
+    console.log('Last updated:     ' + stat.last_updated);
     console.log();
   });
 }, function(error) {
