@@ -13,7 +13,7 @@ currency = 'BTC' # str | Return pairs with one side being the given Crypto Curre
  
 try:
     api_response = crypto_api.get_crypto_pairs(exchange=exchange, currency=currency)
-    pairs = api_response.currency_pairs
+    pairs = api_response.pairs
 
     print("%s pairs found!" % (len(pairs)))
 
@@ -27,15 +27,6 @@ try:
         print("History available:    %s" % (pair.history_available))
         print("Snapshot available:   %s" % (pair.snapshot_available))
         print("Trades available:     %s" % (pair.trades_available))
-
-        print("Currencies: ")
-        for currency in pair.currencies:
-            print("  - %s" % (currency))
-
-        print("Exchanges: ")
-        for exchange in pair.exchanges:
-            print("  - %s" % (exchange))
-
         print("")
 except ApiException as e:
     print("Exception when calling CryptoApi->get_crypto_pairs: %s\n" % e)

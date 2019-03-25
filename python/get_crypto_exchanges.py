@@ -28,9 +28,6 @@ try:
         print("History available:    %s" % (exchange.history_available))
         print("Snapshot available:   %s" % (exchange.snapshot_available))
         print("Trades available:     %s" % (exchange.trades_available))
-        print("Pairs: ")
-        for pair in exchange.pairs:
-            print("  - %s" % (pair)) 
         print("")
 
 except ApiException as e:
