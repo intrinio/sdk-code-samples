@@ -10,22 +10,22 @@ crypto_api = Intrinio::CryptoApi.new
  
 opts = { 
   exchange: "gemini", # String | Returns stats for Crypto Currencies that trade on the specified Crypto Exchange.
-  currency: "BTC" # String | Returns stats for the specified Crypto Currency.
+  currency: "BTC" # String | Returns stats for the specified Crypto stat.
 }
  
 begin
   result = crypto_api.get_crypto_stats(opts)
-  currencies = result.currencies
-  puts "#{currencies.size} currency stats found!"
-  currencies.each do |currency|
-    puts "Name:             #{currency.name}"
-    puts "Code:             #{currency.code}"
-    puts "Symbol:           #{currency.symbol}"
-    puts "Market cap(USD):  #{currency.market_cap_usd}"
-    puts "Available supply: #{currency.available_supply}"
-    puts "Total supply:     #{currency.total_supply}"
-    puts "Max supply:       #{currency.max_supply}"
-    puts "Last updated:     #{currency.last_updated}"
+  stats = result.stats
+  puts "#{stats.size} stats found!"
+  stats.each do |stat|
+    puts "Name:             #{stat.name}"
+    puts "Code:             #{stat.code}"
+    puts "Symbol:           #{stat.symbol}"
+    puts "Market cap(USD):  #{stat.market_cap_usd}"
+    puts "Available supply: #{stat.available_supply}"
+    puts "Total supply:     #{stat.total_supply}"
+    puts "Max supply:       #{stat.max_supply}"
+    puts "Last updated:     #{stat.last_updated}"
     puts ""
   end
 rescue Intrinio::ApiError => e

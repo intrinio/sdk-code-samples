@@ -30,8 +30,6 @@ begin
     puts "History available:    #{exchange.history_available}"
     puts "Snapshot available:   #{exchange.snapshot_available}"
     puts "Trades available:     #{exchange.trades_available}"
-    puts "Pairs: "
-    exchange.pairs.each { |pair| puts "  - #{pair}" }
     puts ""
   end
 rescue Intrinio::ApiError => e

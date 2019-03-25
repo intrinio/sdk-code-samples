@@ -15,7 +15,7 @@ opts = {
  
 begin
   result = crypto_api.get_crypto_pairs(opts)
-  pairs = result.currency_pairs
+  pairs = result.pairs
   
   puts "#{pairs.size} pairs found!"
 
@@ -29,10 +29,6 @@ begin
     puts "History available:    #{pair.history_available}"
     puts "Snapshot available:   #{pair.snapshot_available}"
     puts "Trades available:     #{pair.trades_available}"
-    puts "Currencies: "
-    pair.currencies.each { |currency| puts "  - #{currency}" }
-    puts "Exchanges: "
-    pair.exchanges.each { |exchange| puts "  - #{exchange}" }
     puts ""
   end
 rescue Intrinio::ApiError => e
