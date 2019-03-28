@@ -41,6 +41,7 @@ begin
     puts "Strike:     #{option.strike}"
     puts "Type:       #{option.type}"
 
+    puts ""
     puts "PRICE"
     puts "Date:                      #{price.date}"
     puts "Close:                     #{price.close}"

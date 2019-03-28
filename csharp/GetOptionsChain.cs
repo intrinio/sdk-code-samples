@@ -46,6 +46,7 @@ namespace Example
           Console.WriteLine("Strike:     " + option.Strike);
           Console.WriteLine("Type:       " + option.Type);
 
+          Console.WriteLine();
           Console.WriteLine("PRICE");
           Console.WriteLine("Date:                      " + price.Date);
           Console.WriteLine("Close:                     " + price.Close);

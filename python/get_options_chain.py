@@ -31,6 +31,7 @@ try:
         print("Strike:     %s" % (option.strike))
         print("Type:       %s" % (option.type))
 
+        print("")
         print("PRICE")
         print("Date:                      %s" % (price.date))
         print("Close:                     %s" % (price.close))

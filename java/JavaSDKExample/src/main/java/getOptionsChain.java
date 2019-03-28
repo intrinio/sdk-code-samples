@@ -51,6 +51,7 @@ public class App
         System.out.println("Strike:     " + option.getStrike());
         System.out.println("Type:       " + option.getType());
 
+        System.out.println();
         System.out.println("PRICE");
         System.out.println("Date:                      " + price.getDate());
         System.out.println("Close:                     " + price.getClose());
