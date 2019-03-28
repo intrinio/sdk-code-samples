@@ -27,14 +27,14 @@ namespace Example
       try
       {
         ApiResponseOptionsChain result = optionsApi.GetOptionsChain(symbol, expiration, type, strike, strikeGreaterThan, strikeLessThan, moneyness, pageSize);
-        List<OptionChain> chains = result.Chains;
+        List<OptionChain> chain = result.Chain;
         
-        Console.WriteLine(chains.Count + " option chains found for " + symbol + "!");
+        Console.WriteLine(chain.Count + " results found for " + symbol + "!");
 
-        chains.ForEach(delegate (OptionChain chain)
+        chain.ForEach(delegate (OptionChain chain_link)
         {
-          Option option = chain.Option;
-          OptionPrice price = chain.Price;
+          Option option = chain_link.Option;
+          OptionPrice price = chain_link.Price;
 
           Console.WriteLine();
           Console.WriteLine("-----------------------------------------------------------------------------------");

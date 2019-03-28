@@ -10,13 +10,13 @@ var expiration = "2019-03-18"; // String | The expiration date of the options co
 var opts = {};
  
 optionsAPI.getOptionsChain(symbol, expiration, opts).then(function(data) {
-  var chains = data.chains;
+  var chain = data.chain;
   
-  console.log(chains.length + ' option chains found for ' + symbol + '!');
+  console.log(chain.length + ' results found for ' + symbol + '!');
   
-  chains.forEach(function(chain) {
-    var option = chain.option;
-    var price = chain.price;
+  chain.forEach(function(chain_link) {
+    var option = chain_link.option;
+    var price = chain_link.price;
 
     console.log("");
     console.log("--------------------------------------------------------------------------");
