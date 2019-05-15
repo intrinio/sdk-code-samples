@@ -23,13 +23,13 @@ opts = {
  
 begin
   result = options_api.get_options_chain(symbol, expiration, opts)
-  chains = result.chains
+  chain = result.chain
 
-  puts "#{chains.size} option chains found for #{symbol}!"
+  puts "#{chain.size} results found for #{symbol}!"
 
-  chains.each do |chain|
-    option = chain.option
-    price = chain.price
+  chain.each do |chain_link|
+    option = chain_link.option
+    price = chain_link.price
 
     puts ""
     puts "------------------------------------------------------------------------------------------------"

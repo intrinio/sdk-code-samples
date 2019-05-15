@@ -13,13 +13,13 @@ expiration = '2019-03-18' # str | The expiration date of the options contract
  
 try:
     api_response = options_api.get_options_chain(symbol, expiration)
-    chains = api_response.chains
+    chain = api_response.chain
 
-    print("%s option chains found for %s!" % (len(chains), symbol))
+    print("%s results found for %s!" % (len(chain), symbol))
 
-    for chain in chains:
-        option = chain.option
-        price = chain.price
+    for chain_link in chain:
+        option = chain_link.option
+        price = chain_link.price
 
         print("")
         print("----------------------------------------------------------")

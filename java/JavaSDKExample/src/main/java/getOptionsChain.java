@@ -32,14 +32,14 @@ public class App
 
     try {
       ApiResponseOptionsChain result = optionsApi.getOptionsChain(symbol, expiration, type, strike, strikeGreaterThan, strikeLessThan, moneyness, pageSize);
-      List<OptionChain> chains = result.getChains();
+      List<OptionChain> chain = result.getChain();
 
-      System.out.println(chains.size() + " option chains found for " + symbol + "!");
+      System.out.println(chain.size() + " results found for " + symbol + "!");
       System.out.println();
 
-      for (OptionChain chain : chains) {
-        Option option = chain.getOption();
-        OptionPrice price = chain.getPrice();
+      for (OptionChain chain_link : chain) {
+        Option option = chain_link.getOption();
+        OptionPrice price = chain_link.getPrice();
 
         System.out.println();
         System.out.println("------------------------------------------------------------------------------------------------");
